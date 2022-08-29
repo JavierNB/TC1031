@@ -66,4 +66,37 @@ public:
         }
         else cout << "No se puede abrir el archivo";
     }
+
+    void intercambiar(int i, int j){
+        int paso;
+        paso = datos[i];
+        datos[i] = datos[j];
+        datos[j] = paso;
+    }
+
+    // ordena el ADT usando Selection Sort
+    void selectionSort(){
+        int menor;
+        for(int i =0; i<= tam-2; i++){
+            menor = i;
+            for(int j =i+1; j<= tam-1; j++){
+                if(datos[j] < datos[menor]){
+                    menor = j; //posicion del menor
+                }
+            }
+            // intercambio
+            intercambiar(i, menor);
+        }
+    }
+
+    void insertionSort(){
+        for(int i =1; i< tam; i++){
+            for(int j = i-1; j >= 0; j--){
+                if(datos[j+1] < datos[j])
+                    intercambiar(j+1, j);
+                else
+                    break;
+            }
+        }
+    }
 };
